@@ -94,11 +94,11 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
         
 img=None
-img_file_buffer = st.camera_input("Take a picture")
+#img_file_buffer = st.camera_input("Take a picture")
+#if img_file_buffer is not None:
+#    # To read image file buffer as a PIL Image:
+#    img = Image.open(img_file_buffer)
 
-if img_file_buffer is not None:
-    # To read image file buffer as a PIL Image:
-    img = Image.open(img_file_buffer)
 uploaded_file = st.file_uploader("Choose a picture",type=['png', 'jpg','jpeg','gif'] )
 if uploaded_file is not None:
     # To read file as bytes:
