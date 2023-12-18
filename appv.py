@@ -88,12 +88,13 @@ import streamlit as st
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    
+if "img" not in st.session_state:
+    st.session_state.img = []    
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         
-img=None
+
 #img_file_buffer = st.camera_input("Take a picture")
 #if img_file_buffer is not None:
 #    # To read image file buffer as a PIL Image:
@@ -104,7 +105,7 @@ if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
     bytes_io = BytesIO(bytes_data)
-    img = Image.open(bytes_io)
+    st.session_state.img = Image.open(bytes_io)
     st.image(bytes_io,width=300)
     #t.write(bytes_data)
 
@@ -114,6 +115,6 @@ if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("assistant"):
             #stream_handler = StreamHandler(st.empty())
-            re = getAnswer(prompt,img,lambda x:st.write(x))
+            re = getAnswer(prompt,st.session_state.img,lambda x:st.write(x))
             print(re)
             st.session_state.messages.append({"role": "assistant", "content": re})
