@@ -5,12 +5,8 @@ from dotenv import load_dotenv
 import os
 
 
-your_key = st.sidebar.text_input("Your key", type="password")
-if not your_key:
-    st.info("Please add your key to continue.")
-    st.stop()
 
-genai.configure(api_key=your_key)
+genai.configure(api_key=AIzaSyBqpQjl_l3umdCUqBPk__y45ZgcPiUHg48)
 
 # Set up the model
 generation_config = {
