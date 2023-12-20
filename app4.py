@@ -6,7 +6,7 @@ import os
 
 
 
-genai.configure(api_key=AIzaSyBqpQjl_l3umdCUqBPk__y45ZgcPiUHg48)
+genai.configure(api_key="AIzaSyBqpQjl_l3umdCUqBPk__y45ZgcPiUHg48")
 
 # Set up the model
 generation_config = {
