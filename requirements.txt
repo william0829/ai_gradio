@@ -6,4 +6,4 @@ gradio
 promise
 asyncio
 python-dotenv
-streamlit==1.20
+streamlit==1.24
